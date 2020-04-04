@@ -6,7 +6,7 @@ namespace Laboratorio03
     {
         public static void Main(string[] args)
         {
-            Espotifai SPOT = new Espotifai();
+            //Espotifai SPOT = new Espotifai();
             String response = "x";
             while (true)
             {
@@ -40,13 +40,13 @@ namespace Laboratorio03
                         String new_genre;
                         Console.Write("Genero de la cancion: ");
                         new_genre = Console.ReadLine();
-                        Cancion new_song = new Cancion(new_name, new_album, new_artist, new_genre);
-                        SPOT.AgregarCancion(new_song);
+                        //Cancion new_song = new Cancion(new_name, new_album, new_artist, new_genre);
+                        //SPOT.AgregarCancion(new_song);
                     }
 
                     if (response == "V" || response == "v")
                     {
-                        SPOT.VerCanciones();
+                        //SPOT.VerCanciones();
                     }
 
                     if (response == "C" || response == "c")
@@ -75,7 +75,7 @@ namespace Laboratorio03
                             String response3 = "x";
                             Console.Write("¿Cuál es el " + response2 + " que desea buscar?  ");
                             response3 = Console.ReadLine();
-                            SPOT.CancionesPorCriterio(response2, response3);
+                            //SPOT.CancionesPorCriterio(response2, response3);
                             response2 = "x";
                             response3 = "x";
                         }
@@ -114,7 +114,7 @@ namespace Laboratorio03
                             String response3 = "x";
                             Console.Write("¿Cuál es el " + response2 + " que desea utilizar?  ");
                             response3 = Console.ReadLine();
-                            SPOT.GenerarPlaylist(response2, response3, new_pl_name);
+                            //SPOT.GenerarPlaylist(response2, response3, new_pl_name);
                             response2 = "x";
                             response3 = "x";
                         }
@@ -126,7 +126,7 @@ namespace Laboratorio03
 
                     if (response == "L" || response == "l")
                     {
-                        Console.WriteLine(SPOT.VerMisPlaylists());
+                        //Console.WriteLine(SPOT.VerMisPlaylists());
                     }
 
                     if (response == "S" || response == "s")
