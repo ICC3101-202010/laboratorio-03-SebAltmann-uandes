@@ -15,5 +15,16 @@ namespace Laboratorio03
             this.marca = marca;
             this.stock = stock;
         }
+
+        public bool RevisarStock(Producto producto)
+        {
+            if (producto.stock == 0)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
     }
 }
