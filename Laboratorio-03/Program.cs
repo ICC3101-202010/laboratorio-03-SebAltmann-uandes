@@ -6,47 +6,73 @@ namespace Laboratorio03
     {
         public static void Main(string[] args)
         {
-            //Espotifai SPOT = new Espotifai();
+            Supermarket Moogle = new Supermarket();
             String response = "x";
             while (true)
             {
-                while (response != "A" && response != "a" && response != "V" && response != "v" && response != "S" && response != "s" && response != "C" && response != "c" && response != "P" && response != "p" && response != "L" && response != "l")
+                while (response != "A" && response != "a" && response != "B" && response != "B" && response != "S" && response != "s" && response != "C" && response != "c" && response != "P" && response != "p" && response != "L" && response != "l")
                 {
-                    Console.WriteLine("Bienvenido a Espotifai!\n");
-                    Console.WriteLine("Agregar Canción: {A}");
-                    Console.WriteLine("Ver Canciones: {V}");
-                    Console.WriteLine("Ver Canciones por Criterio: {C}");
+                    Console.WriteLine("Welcome to Moogle-mart!!\n");
+                    Console.WriteLine("Create Person (Play God): {A}");
+                    Console.WriteLine("Create Product: {B}");
+                    Console.WriteLine("Make a purchase: {C}");
                     Console.WriteLine("Crear playlist: {P}");
                     Console.WriteLine("Ver mis Playlists: {L}");
-                    Console.WriteLine("Salir: {S}");
+                    Console.WriteLine("Exit: {S}");
                     response = Console.ReadLine();
 
-                    if (response != "A" && response != "a" && response != "V" && response != "v" && response != "S" && response != "s" && response != "C" && response != "c" && response != "P" && response != "p" && response != "L" && response != "l")
+                    if (response != "A" && response != "a" && response != "B" && response != "b" && response != "S" && response != "s" && response != "C" && response != "c" && response != "P" && response != "p" && response != "L" && response != "l")
                     {
-                        Console.WriteLine("La respuesta no es válida.");
+                        Console.WriteLine("Invalid response.");
                     }
 
                     if (response == "A" || response == "a")
                     {
                         String new_name;
-                        Console.Write("Nombre de la cancion: ");
+                        Console.Write("New person's name: ");
                         new_name = Console.ReadLine();
-                        String new_artist;
-                        Console.Write("Artista de la cancion: ");
-                        new_artist = Console.ReadLine();
-                        String new_album;
-                        Console.Write("Album de la cancion: ");
-                        new_album = Console.ReadLine();
-                        String new_genre;
-                        Console.Write("Genero de la cancion: ");
-                        new_genre = Console.ReadLine();
-                        //Cancion new_song = new Cancion(new_name, new_album, new_artist, new_genre);
-                        //SPOT.AgregarCancion(new_song);
+                        String new_RUT;
+                        Console.Write("New person's RUT (XX.XXX.XXX-X): ");
+                        new_RUT = Console.ReadLine();
+                        String new_last_name;
+                        Console.Write("New person's last name: ");
+                        new_last_name = Console.ReadLine();
+                        String new_dob;
+                        Console.Write("New person's date of birth (DD/MM/YYYY): ");
+                        new_dob = Console.ReadLine();
+                        String new_nationality;
+                        Console.Write("New person's nationality: ");
+                        new_nationality = Console.ReadLine();
+                        String new_role;
+                        Console.Write("New person's role (client/worker/supervisor/boss/janitor): ");
+                        new_role = Console.ReadLine();
+                        String new_salary;
+                        Console.Write("New person's salary: ");
+                        new_salary = Console.ReadLine();
+                        Persona new_person = new Persona(new_RUT, new_name, new_last_name, new_dob, new_nationality, new_role, new_salary);
+                        Moogle.AddPerson(new_person);
                     }
 
-                    if (response == "V" || response == "v")
+                    if (response == "B" || response == "b")
                     {
-                        //SPOT.VerCanciones();
+                        String new_pname;
+                        Console.Write("New product's name: ");
+                        new_pname = Console.ReadLine();
+                        String new_price;
+                        int new_price2;
+                        Console.Write("New product's price: ");
+                        new_price = Console.ReadLine();
+                        new_price2 = Convert.ToInt32(new_price);
+                        String new_brand;
+                        Console.Write("New product's brand: ");
+                        new_brand = Console.ReadLine();
+                        String new_stock;
+                        int new_stock2;
+                        Console.Write("Amount of the new product to add to stock: ");
+                        new_stock = Console.ReadLine();
+                        new_stock2 = Convert.ToInt32(new_stock);
+                        Producto new_product = new Producto(new_pname, new_price2, new_brand, new_stock2);
+                        Moogle.AddProduct(new_product);
                     }
 
                     if (response == "C" || response == "c")
