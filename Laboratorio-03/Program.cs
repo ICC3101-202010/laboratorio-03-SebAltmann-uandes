@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Laboratorio03
 {
@@ -10,18 +11,18 @@ namespace Laboratorio03
             String response = "x";
             while (true)
             {
-                while (response != "A" && response != "a" && response != "B" && response != "B" && response != "S" && response != "s" && response != "C" && response != "c" && response != "P" && response != "p" && response != "L" && response != "l")
+                while (response != "A" && response != "a" && response != "B" && response != "B" && response != "S" && response != "s" && response != "C" && response != "c" && response != "D" && response != "d" && response != "E" && response != "e")
                 {
                     Console.WriteLine("Welcome to Moogle-mart!!\n");
                     Console.WriteLine("Create Person (Play God): {A}");
                     Console.WriteLine("Create Product: {B}");
                     Console.WriteLine("Make a purchase: {C}");
-                    Console.WriteLine("Crear playlist: {P}");
-                    Console.WriteLine("Ver mis Playlists: {L}");
+                    Console.WriteLine("Change a person's role: {D}");
+                    Console.WriteLine("Adjust a person's salary: {E}");
                     Console.WriteLine("Exit: {S}");
                     response = Console.ReadLine();
 
-                    if (response != "A" && response != "a" && response != "B" && response != "b" && response != "S" && response != "s" && response != "C" && response != "c" && response != "P" && response != "p" && response != "L" && response != "l")
+                    if (response != "A" && response != "a" && response != "B" && response != "b" && response != "S" && response != "s" && response != "C" && response != "c" && response != "D" && response != "d" && response != "E" && response != "e")
                     {
                         Console.WriteLine("Invalid response.");
                     }
@@ -49,7 +50,7 @@ namespace Laboratorio03
                         String new_salary;
                         Console.Write("New person's salary: ");
                         new_salary = Console.ReadLine();
-                        Persona new_person = new Persona(new_RUT, new_name, new_last_name, new_dob, new_nationality, new_role, new_salary);
+                        Persona new_person = new Persona(new_RUT, new_name, new_last_name, new_dob, new_nationality, new_role, Convert.ToInt32(new_salary));
                         Moogle.AddPerson(new_person);
                     }
 
@@ -59,100 +60,47 @@ namespace Laboratorio03
                         Console.Write("New product's name: ");
                         new_pname = Console.ReadLine();
                         String new_price;
-                        int new_price2;
                         Console.Write("New product's price: ");
                         new_price = Console.ReadLine();
-                        new_price2 = Convert.ToInt32(new_price);
                         String new_brand;
                         Console.Write("New product's brand: ");
                         new_brand = Console.ReadLine();
                         String new_stock;
-                        int new_stock2;
                         Console.Write("Amount of the new product to add to stock: ");
                         new_stock = Console.ReadLine();
-                        new_stock2 = Convert.ToInt32(new_stock);
-                        Producto new_product = new Producto(new_pname, new_price2, new_brand, new_stock2);
-                        Moogle.AddProduct(new_product);
+                        Producto new_product = new Producto(new_pname, Convert.ToInt32(new_price), new_brand, Convert.ToInt32(new_stock));
+                        Moogle.AddProduct(new_product, Convert.ToInt32(new_stock));
                     }
 
                     if (response == "C" || response == "c")
                     {
-                        String response2 = "x";
-                        Console.Write("¿Qué criterio desea utilizar? (Nombre/Artista/Album/Género)  ");
-                        response2 = Console.ReadLine();
-                        if (response2 == "Nombre" || response2 == "nombre" || response2 == "Artista" || response2 == "artista" || response2 == "Album" || response2 == "album" || response2 == "Género" || response2 == "Genero" || response2 == "género" || response2 == "genero")
+                        while (true)
                         {
-                            if (response2 == "Nombre")
-                            {
-                                response2 = "nombre";
-                            }
-                            else if (response2 == "Artista")
-                            {
-                                response2 = "artista";
-                            }
-                            else if (response2 == "Album")
-                            {
-                                response2 = "album";
-                            }
-                            else if (response2 == "Género" || response2 == "Genero" || response2 == "género")
-                            {
-                                response2 = "genero";
-                            }
-                            String response3 = "x";
-                            Console.Write("¿Cuál es el " + response2 + " que desea buscar?  ");
-                            response3 = Console.ReadLine();
-                            //SPOT.CancionesPorCriterio(response2, response3);
-                            response2 = "x";
-                            response3 = "x";
-                        }
-                        else
-                        {
-                            Console.WriteLine("Ése criterio no es válido.");
+                            Cart Kart = new Cart();
+                            return;
                         }
                     }
 
-                    if (response == "P" || response == "p")
+                    if (response == "D" || response == "d")
                     {
-                        String new_pl_name = "x";
-                        Console.Write("¿Qué nombre desea darle a la playlist?  ");
-                        new_pl_name = Console.ReadLine();
-                        String response2 = "x";
-                        Console.Write("¿Qué criterio desea utilizar? (Nombre/Artista/Album/Género)  ");
-                        response2 = Console.ReadLine();
-                        if (response2 == "Nombre" || response2 == "nombre" || response2 == "Artista" || response2 == "artista" || response2 == "Album" || response2 == "album" || response2 == "Género" || response2 == "Genero" || response2 == "género" || response2 == "genero")
-                        {
-                            if (response2 == "Nombre")
-                            {
-                                response2 = "nombre";
-                            }
-                            else if (response2 == "Artista")
-                            {
-                                response2 = "artista";
-                            }
-                            else if (response2 == "Album")
-                            {
-                                response2 = "album";
-                            }
-                            else if (response2 == "Género" || response2 == "Genero" || response2 == "género")
-                            {
-                                response2 = "genero";
-                            }
-                            String response3 = "x";
-                            Console.Write("¿Cuál es el " + response2 + " que desea utilizar?  ");
-                            response3 = Console.ReadLine();
-                            //SPOT.GenerarPlaylist(response2, response3, new_pl_name);
-                            response2 = "x";
-                            response3 = "x";
-                        }
-                        else
-                        {
-                            Console.WriteLine("Ése criterio no es válido.");
-                        }
+                        String j_RUT;
+                        Console.Write("What is the RUT if the person whose job you wish to change? ");
+                        j_RUT = Console.ReadLine();
+                        String n_job;
+                        Console.Write("What will be the new job of this person? ");
+                        n_job = Console.ReadLine();
+                        Moogle.JobChange(j_RUT, n_job);
                     }
 
-                    if (response == "L" || response == "l")
+                    if (response == "E" || response == "e")
                     {
-                        //Console.WriteLine(SPOT.VerMisPlaylists());
+                        String s_RUT;
+                        Console.Write("What is the RUT if the person whose salary you wish to adjust? ");
+                        s_RUT = Console.ReadLine();
+                        String a_salary;
+                        Console.Write("What will be the new salary of this person? ");
+                        a_salary = Console.ReadLine();
+                        Moogle.AdjustSalary(s_RUT, Convert.ToInt32(a_salary));
                     }
 
                     if (response == "S" || response == "s")
