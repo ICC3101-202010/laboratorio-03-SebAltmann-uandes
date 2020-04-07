@@ -74,10 +74,60 @@ namespace Laboratorio03
 
                     if (response == "C" || response == "c")
                     {
+                        List<Producto> productos = new List<Producto>();
+                        Cart Kart = new Cart(productos);
                         while (true)
                         {
-                            Cart Kart = new Cart();
-                            return;
+                            char AGoodOther = 'X';
+                            String pname;
+                            Console.Write("Product's name: ");
+                            pname = Console.ReadLine();
+                            String pbrand;
+                            Console.Write("Product's brand: ");
+                            pbrand = Console.ReadLine();
+                            if (Moogle.AllProducts.Count > 0)
+                            {
+                                int i = 0;
+                                foreach (Producto producto in Moogle.AllProducts)
+                                {
+                                    if (producto.GetName() == pname && producto.GetBrand() == pbrand)
+                                    {
+                                        productos.Add(producto);
+                                    } else
+                                    {
+                                        i++;
+                                    }
+                                }
+                                if (i == Moogle.AllProducts.Count)
+                                {
+                                    Console.WriteLine("Could not find the specified product.");
+                                }
+                            }
+                            while (AGoodOther != 'y' && AGoodOther != 'n')
+                            {
+                                Console.Write("Would you like to add another product to your cart? {y/n} ");
+                                if (AGoodOther == 'n')
+                                {
+                                    return;
+                                }
+                                else if (AGoodOther == 'y')
+                                {
+                                    return;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid answer.");
+                                }
+                            }
+
+                            if (AGoodOther == 'n')
+                            {
+                                AGoodOther = 'X';
+                                int total = 0;
+                                total = Kart.GetTotal();
+                                Console.WriteLine("Your total is: "+total);
+                                return;
+                            }
                         }
                     }
 

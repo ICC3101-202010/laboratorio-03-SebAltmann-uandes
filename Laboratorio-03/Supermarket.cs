@@ -4,8 +4,8 @@ namespace Laboratorio03
 {
     public class Supermarket
     {
-        private List<Persona> People = new List<Persona>;
-        private List<Producto> AllProducts = new List<Producto>;
+        private List<Persona> People = new List<Persona>();
+        public List<Producto> AllProducts = new List<Producto>();
 
         public Supermarket()
         {

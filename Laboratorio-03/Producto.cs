@@ -6,7 +6,7 @@ namespace Laboratorio03
         private string nombre;
         private int precio;
         private string marca;
-        private int stock;
+        public int stock;
 
         public Producto(String nombre, int precio, String marca, int stock)
         {
@@ -16,9 +16,24 @@ namespace Laboratorio03
             this.stock = stock;
         }
 
-        public bool RevisarStock(Producto producto)
+        public String GetName()
         {
-            if (producto.stock == 0)
+            return nombre;
+        }
+
+        public int GetPrice()
+        {
+            return precio;
+        }
+
+        public String GetBrand()
+        {
+            return marca;
+        }
+
+        public bool RevisarStock()
+        {
+            if (stock == 0)
             {
                 return false;
             } else
